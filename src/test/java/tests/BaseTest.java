@@ -9,9 +9,9 @@ import pages.SignUpPage.SignUpPage;
 
 
 public class BaseTest {
-    public SignInPage signInPage= SignInPage.getInstance();
-    public RegisterPage registerPage = RegisterPage.getInstance();
-    public SignUpPage signUpPage= SignUpPage.getInstance();
+    public SignInPage SignInPage= pages.SignInPage.SignInPage.getInstance();
+    public RegisterPage RegisterPage = pages.RegisterPage.RegisterPage.getInstance();
+    public SignUpPage SignUpPage= pages.SignUpPage.SignUpPage.getInstance();
 
 
     @BeforeSuite
