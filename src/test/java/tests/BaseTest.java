@@ -1,26 +1,23 @@
 package tests;
 
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import pages.RegisterPage.RegisterPage;
-import pages.SignInPage.SignInPage;
-import pages.BasePage;
-import pages.SignUpPage.SignUpPage;
-
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
-    public SignInPage SignInPage= pages.SignInPage.SignInPage.getInstance();
-    public RegisterPage RegisterPage = pages.RegisterPage.RegisterPage.getInstance();
-    public SignUpPage SignUpPage= pages.SignUpPage.SignUpPage.getInstance();
+    protected WebDriver driver;
 
-
-    @BeforeSuite
-    public void init(){
-        BasePage.setUp();
+    @BeforeMethod
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://www.vodafone.ro");
     }
 
-    @AfterSuite
+    @AfterMethod
     public void tearDown() {
-        BasePage.tearDown();
+        driver.quit();
     }
 }
