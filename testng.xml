@@ -5,10 +5,9 @@
         <classes>
             <class name="tests.SignInTest.SignInTest">
             </class>
-            <class name="tests.SignInTest.SignUpTest">
+            <class name="tests.SignUpTest.SignUpTest">
             </class>
-            <class name="tests.RegisterTest.RegisterTest">
-            </class>
+
         </classes>
     </test>
 
