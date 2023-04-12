@@ -5,9 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testng.Assert;
 import pages.BasePage;
-import pages.SignInPage.SignInPage;
 
 
 public class SignInPage extends BasePage {
@@ -26,31 +24,34 @@ public class SignInPage extends BasePage {
     }
 
 
-    private static By contulMeuLocator = By.xpath("//a[@data-testid='header-menu-account']");
-    private By usernameLocator = By.id("username");
-    private By passwordLocator = By.id("password");
-    private static By loginButtonLocator = By.xpath("//button[@data-testid='login-submit']");
+    private static final By contulMeuLocator = By.xpath("//a[@data-testid='header-menu-account']");
+    private final By usernameLocator = By.id("username");
+    private final By passwordLocator = By.id("password");
+    private final By loginButtonLocator = By.xpath("//button[@data-testid='login-submit']");
+    private final By signInPageDisplayed = By.id("Intră în cont");
 
-    public SignInPage (WebDriver driver) {
-        driver = driver;
+    public SignInPage(WebDriver driver) {
+
     }
 
     public static void navigateToContulMeu() {
+        LOG.info("Click to contul meu");
         driver.findElement(contulMeuLocator).click();
     }
 
     public static void enterCredentials(String username, String password) {
+        LOG.info("Enter password an username");
         driver.findElement(By.id(username)).sendKeys(username);
         driver.findElement(By.id(password)).sendKeys(password);
     }
 
-    public static void clickLoginButton() {
+    public void clickLoginButton() {
+        LOG.info("Click to login button");
         driver.findElement(loginButtonLocator).click();
     }
-
-    public static void login(String username, String password) {
-        navigateToContulMeu();
-        enterCredentials(username, password);
-        clickLoginButton();
+    public boolean isSignInPageDisplayed() {
+        LOG.info("Sign in page displayed");
+        return driver.findElement(signInPageDisplayed).isDisplayed();
     }
+
 }

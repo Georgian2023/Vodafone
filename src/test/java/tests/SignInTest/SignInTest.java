@@ -23,7 +23,7 @@ public class SignInTest extends BaseTest {
 
 
         LOG.info("Verify if sign in page is displayed");
-        Assert.assertTrue(driver.findElement(SignInPage).isDisplayed(), "Login failed");
+        Assert.assertTrue(signInPage.isSignInPageDisplayed(),"Sign in page is not displayed");
 
 }
 
