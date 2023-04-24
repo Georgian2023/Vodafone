@@ -1,31 +1,42 @@
 package tests.SignInTest;
 
-import org.openqa.selenium.By;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import pages.SignInPage.SignInPage;
 import tests.BaseTest;
 
-
 public class SignInTest extends BaseTest {
-    private static final Logger LOG = LoggerFactory.getLogger(SignInTest.class);
-    private String getBaseUrl;
-    private String newUrl = getBaseUrl;
+    private WebDriver driver;
+    private String baseUrl = "https://www.vodafone.ro";
+    private String email = "0727470129";
+    private String password = "Powerzone1983";
 
-    private By SignInPage;
+    @BeforeTest
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", "C://Webdrivers/chromedriver112.exe");
+        driver = new ChromeDriver();
+        driver.get(baseUrl);
+    }
 
     @Test
-    public void testLogin() {
+    public void signInWithValidCredentials() {
+        SignInPage signInPage = new SignInPage(driver);
+        SignInPage.enterEmail(email);
+        SignInPage.enterPassword(password);
+        SignInPage.clickSignInButton();
 
-        String username = "0727470129";
-        String password = "Powerzone1983";
+        String expectedUrl = "https://www.vodafone.ro/myvodafone/dashboard";
+        String actualUrl = driver.getCurrentUrl();
+        Assert.assertEquals(actualUrl, expectedUrl);
+    }
 
-
-        LOG.info("Verify if sign in page is displayed");
-        Assert.assertTrue(signInPage.isSignInPageDisplayed(),"Sign in page is not displayed");
-
+    @AfterTest
+    public void tearDown() {
+        driver.quit();
+    }
 }
-
-}
-

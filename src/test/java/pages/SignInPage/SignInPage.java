@@ -13,7 +13,7 @@ public class SignInPage extends BasePage {
     public static SignInPage instance;
     private static WebElement driver;
 
-    private SignInPage() {
+    public SignInPage() {
     }
 
     public static SignInPage getInstance() {
@@ -43,6 +43,15 @@ public class SignInPage extends BasePage {
         LOG.info("Enter password an username");
         driver.findElement(By.id(username)).sendKeys(username);
         driver.findElement(By.id(password)).sendKeys(password);
+    }
+
+    public static void enterEmail(String email) {
+    }
+
+    public static void enterPassword(String password) {
+    }
+
+    public static void clickSignInButton() {
     }
 
     public void clickLoginButton() {

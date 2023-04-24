@@ -10,6 +10,13 @@ public class BasePage {
     private static final Logger LOG = LoggerFactory.getLogger(BasePage.class);
     public static WebDriver driver;
 
+    public BasePage(WebDriver driver) {
+
+    }
+
+    public BasePage() {
+    }
+
     public static void setUp() {
         LOG.info("Start test");
         System.setProperty("webdriver.chrome.driver", "C://Webdrivers/chromedriver112.exe");
