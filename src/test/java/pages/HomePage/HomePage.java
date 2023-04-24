@@ -14,9 +14,10 @@ public class HomePage extends BasePage {
     public static SignInPage instance;
     private static WebElement driver;
 
-
+    private By cookieButton = By.xpath("//button[@id= 'onetrust-pc-btn-handler']");
     private By searchBox = By.id("search");
     private By contactButton = By.xpath("//a[contains(@href, '/ro/contact')]");
+
 
 
     public HomePage(WebDriver driver) {
@@ -25,6 +26,11 @@ public class HomePage extends BasePage {
 
     public static HomePageTest getInstance() {
         return null;
+    }
+
+    public void clickOnCookieButton(){
+        LOG.info("Click on cookie button");
+        driver.findElement(cookieButton).click();
     }
 
 

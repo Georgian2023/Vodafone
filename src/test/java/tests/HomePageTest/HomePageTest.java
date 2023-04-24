@@ -25,7 +25,7 @@ public class HomePageTest extends BaseTest {
     @Test
     public void testSearch() {
         homePage.enterSearchText("iPhone");
-        // Add assertions or actions to validate search functionality
+
     }
 
     public void testContactButton() {
