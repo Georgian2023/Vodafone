@@ -23,9 +23,6 @@ public class ReincarcaCartelaTest extends BaseTest{
     }
 
     @Test
-    public void clickOnCookieButton() {
-        clickOnCookieButton()
-    }
     public void testRechargeButton() {
         reincarcaCartelaPage.open();
         reincarcaCartelaPage.clickRechargeButton();

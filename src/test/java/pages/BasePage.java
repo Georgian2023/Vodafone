@@ -42,7 +42,6 @@ public class BasePage {
     public static String getBaseUrl() {
         String baseUrl = returnBAseUrl();
         if (baseUrl != null) {
-            return baseUrl.replace("https://www.vodafone.ro", "");
         }
         return baseUrl;
     }
