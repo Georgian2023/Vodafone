@@ -24,6 +24,7 @@ public class HomePage extends BasePage {
     }
 
     public static HomePageTest getInstance() {
+        return null;
     }
 
 

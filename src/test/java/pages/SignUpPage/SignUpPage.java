@@ -2,11 +2,9 @@ package pages.SignUpPage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import pages.BasePage;
 
 public class SignUpPage extends BasePage {
-    private static final Process LOG = ;
     private By firstNameField = By.id("firstName");
     private By lastNameField = By.id("lastName");
     private By emailField = By.id("email");
@@ -19,6 +17,7 @@ public class SignUpPage extends BasePage {
     }
 
     public static SignUpPage getInstance() {
+        return null;
     }
 
     public void enterFirstName(String firstName) {

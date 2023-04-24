@@ -3,7 +3,6 @@ package tests.HomePageTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.HomePage.HomePage;
@@ -16,7 +15,7 @@ public class HomePageTest extends BaseTest {
 
     @BeforeTest
     public void setUp() {
-        WebDriverManager.chromedriver().setup();
+        System.setProperty("webdriver.chrome.driver", "C://Webdrivers/chromedriver112.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.vodafone.ro");
