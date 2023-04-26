@@ -1,45 +1,26 @@
 package tests.SignUpTest;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
-import pages.SignUpPage.SignUpPage;
 import tests.BaseTest;
 
+import static pages.BasePage.driver;
+import static pages.BasePage.getBaseUrl;
+
 public class SignUpTest extends BaseTest {
+    private String baseUrl = "https://www.vodafone.ro";
+    private String email = "nita.georgian.pfa@gmail.com";
+    private String password = "Powerlive2023@";
+    private String confirmPassword ="Powerlive2023@";
+    private String newUrl = getBaseUrl()+ "/login";
+    private Object signUPage;
+
     @Test
     public void signUpWithValidCredentials() {
-        WebDriver driver = null;
-        SignUpPage signUpPage = new SignUpPage(driver);
-        signUpPage.enterFirstName("Nita");
-        signUpPage.enterLastName("Georgian");
-        signUpPage.enterEmail("nita.georgian.pfa@gmail.com");
-        signUpPage.enterPassword("Powerlive2023");
-        signUpPage.enterConfirmPassword("Powerlive2023");
-        signUpPage.clickSubmitButton();
+        driver.get(newUrl);
 
-    }
-    @Test
-    public void signUpWithInvalidEmail() {
-        WebDriver driver = null;
-        SignUpPage signUpPage = new SignUpPage(driver);
-        signUpPage.enterFirstName("Nita");
-        signUpPage.enterLastName("Georgian");
-        signUpPage.enterEmail("nita.georgian.pfa@gmail.ro");
-        signUpPage.enterPassword("Powerlive2023");
-        signUpPage.enterConfirmPassword("Powerlive2023");
-        signUpPage.clickSubmitButton();
+        signUpPage.enterEmail(email);
+        signUpPage.enterPassword(password);
 
-    }
-    @Test
-    public void signUpWithMismatchedPasswords() {
-        WebDriver driver = null;
-        SignUpPage signUpPage = new SignUpPage(driver);
-        signUpPage.enterFirstName("Nita");
-        signUpPage.enterLastName("Georgian");
-        signUpPage.enterEmail("nita.georgian.pfa@gmail.com");
-        signUpPage.enterPassword("Powerlive2023");
-        signUpPage.enterConfirmPassword("Powerlive2022");
-        signUpPage.clickSubmitButton();
 
 
     }

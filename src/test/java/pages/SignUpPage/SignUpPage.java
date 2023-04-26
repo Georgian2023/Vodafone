@@ -2,58 +2,76 @@ package pages.SignUpPage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pages.BasePage;
 
 public class SignUpPage extends BasePage {
-    private By firstNameField = By.id("firstName");
-    private By lastNameField = By.id("lastName");
-    private By emailField = By.id("email");
-    private By passwordField = By.id("password");
-    private By confirmPasswordField = By.id("confirmPassword");
-    private By submitButton = By.cssSelector("button[type='submit']");
 
-    public SignUpPage(WebDriver driver) {
-        super(driver);
+    public static final Logger LOG = LoggerFactory.getLogger(SignUpPage.class);
+    public static SignUpPage instance;
+
+    public SignUpPage() {
     }
 
     public static SignUpPage getInstance() {
-        return null;
+        if (instance == null) {
+            instance = new SignUpPage();
+        }
+        return instance;
     }
 
-    public void enterFirstName(String firstName) {
-        LOG.info("Enter first name");
-        driver.findElement(firstNameField).sendKeys();
+    private final By contulMeuLocator = By.xpath("//a[@data-testid='header-menu-account']");
+    private final By creeateMyAccount = By.xpath("//span[@id= 'Creează-ți cont']");
+    private final By emailAccount = By.xpath("//input[@id='identifier']");
+    private final By passwordAccount = By.xpath("//input[@id='password']");
+    private final By confirmPasswordAccount = By.xpath("//input[@id='confirm_password']");
+    private final By submitBtn = By.xpath("//button[@class= 'form-button primary']");
+
+    public SignUpPage(WebDriver driver) {
 
     }
 
-    public void enterLastName(String lastName) {
-        LOG.info("Enter last name");
-        driver.findElement(lastNameField).sendKeys();
+    public void navigateToContulMeuLocator() {
+        LOG.info("Click to contul meu");
+        driver.findElement(contulMeuLocator).click();
+    }
+
+    public void enterCredentials(String username, String password) {
+        LOG.info("Enter password an username");
+        driver.findElement(By.id(username)).sendKeys(username);
+        driver.findElement(By.id(password)).sendKeys(password);
 
     }
+
 
     public void enterEmail(String email) {
         LOG.info("Enter email");
-        driver.findElement(emailField).sendKeys(email);
+        sleep(3000);
+        driver.findElement(emailAccount).sendKeys(email);
 
     }
 
-    public void enterPassword(String password) {
+    public  void enterPasswordAccount(String password) {
         LOG.info("Enter password");
-       driver.findElement(passwordField).sendKeys(password);
-
+        driver.findElement(passwordAccount).sendKeys(password);
     }
+
 
     public void enterConfirmPassword(String confirmPassword) {
         LOG.info("Confirm password");
-        driver.findElement(confirmPasswordField).sendKeys(confirmPassword);
+        driver.findElement(confirmPasswordAccount).sendKeys(confirmPassword);
 
     }
 
     public void clickSubmitButton() {
         LOG.info("Click submit button");
-        driver.findElement(submitButton).click();
+        driver.findElement(submitBtn).click();
 
     }
+
+    public void enterPassword(String password) {
+    }
+    private String newUrl = getBaseUrl() + "/login";
 }
 

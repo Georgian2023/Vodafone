@@ -48,16 +48,19 @@ public class SignInPage extends BasePage {
 
     }
     public void enterEmail(String email) {
+        LOG.info("Enter email");
         sleep(3000);
         driver.findElement(emailAccount).sendKeys(email);
 
     }
 
     public  void enterPassword(String password) {
+        LOG.info("Enter password");
         driver.findElement(passwordAccount).sendKeys(password);
     }
 
     public void clickSignInButton() {
+        LOG.info("Click sign in button");
         driver.findElement(submitBtn).click();
     }
 

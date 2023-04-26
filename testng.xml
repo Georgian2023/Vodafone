@@ -7,8 +7,6 @@
             </class>
             <class name="tests.SignUpTest.SignUpTest">
             </class>
-            <class name="tests.HomePageTest.HomePageTest">
-            </class>
 
         </classes>
     </test>
