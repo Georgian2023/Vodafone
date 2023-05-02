@@ -3,8 +3,8 @@ package tests.SignInTest;
 
 import org.testng.annotations.Test;
 import tests.BaseTest;
-import static pages.BasePage.driver;
 
+import static pages.BasePage.driver;
 import static pages.BasePage.getBaseUrl;
 
 public class SignInTest extends BaseTest {

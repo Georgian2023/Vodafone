@@ -23,14 +23,12 @@ public class SignInPage extends BasePage {
 
 
     private final By contulMeuLocator = By.xpath("//a[@data-testid='header-menu-account']");
-    private final By usernameLocator = By.id("username");
-    private final By passwordLocator = By.id("password");
     private final By loginButtonLocator = By.xpath("//button[@data-testid='login-submit']");
     private final By signInPageDisplayed = By.id("Intră în cont");
 
-    private  By emailAccount = By.xpath("//input[@id='identifier']");
-    private By passwordAccount = By.xpath("//input[@id='current-password']");
-    private  By submitBtn = By.xpath("//button[@type='submit']");
+    private final By emailAccount = By.xpath("//input[@id='identifier']");
+    private final By passwordAccount = By.xpath("//input[@id='current-password']");
+    private final By submitBtn = By.xpath("//button[@type='submit']");
 
     public SignInPage(WebDriver driver) {
 
@@ -47,6 +45,7 @@ public class SignInPage extends BasePage {
         driver.findElement(By.id(password)).sendKeys(password);
 
     }
+
     public void enterEmail(String email) {
         LOG.info("Enter email");
         sleep(3000);
@@ -54,7 +53,7 @@ public class SignInPage extends BasePage {
 
     }
 
-    public  void enterPassword(String password) {
+    public void enterPassword(String password) {
         LOG.info("Enter password");
         driver.findElement(passwordAccount).sendKeys(password);
     }
@@ -68,12 +67,13 @@ public class SignInPage extends BasePage {
         LOG.info("Click to login button");
         driver.findElement(loginButtonLocator).click();
     }
+
     public boolean isSignInPageDisplayed() {
         LOG.info("Sign in page displayed");
         return driver.findElement(signInPageDisplayed).isDisplayed();
     }
+
     private String newUrl = getBaseUrl() + "/login";
 
-        
 
 }

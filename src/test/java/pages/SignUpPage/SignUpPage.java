@@ -52,7 +52,7 @@ public class SignUpPage extends BasePage {
 
     }
 
-    public  void enterPasswordAccount(String password) {
+    public void enterPasswordAccount(String password) {
         LOG.info("Enter password");
         driver.findElement(passwordAccount).sendKeys(password);
     }
@@ -72,6 +72,7 @@ public class SignUpPage extends BasePage {
 
     public void enterPassword(String password) {
     }
+
     private String newUrl = getBaseUrl() + "/login";
 }
 
